@@ -15,6 +15,7 @@ public class MoodAnalyzerTest {
         String mood = moodAnalyzer.analyzeMood("I am in any mood");
         Assertions.assertEquals("HAPPY",mood);
     }
+
     @Test
     void givenHappyMoodMessage_AnalyseMoodUsingConstructor_ResultShouldMatch() {
         MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in any mood");
@@ -27,5 +28,12 @@ public class MoodAnalyzerTest {
         MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in sad mood");
         String mood = moodAnalyzer.analyzeMoodAgain();
         Assertions.assertEquals("SAD",mood);
+    }
+
+    @Test
+    void givenNullMoodMessage_AnalyseMoodWithException_ResultShouldMatch() {
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer(null);
+        String mood = moodAnalyzer.analyzeMoodAgain();
+        Assertions.assertEquals("HAPPY",mood);
     }
 }
